@@ -1,0 +1,69 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>User Creation Form Data</title>
+    <style>
+      #customers {
+        font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #customers td,
+      #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      #customers tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      #customers tr:hover {
+        background-color: #ddd;
+      }
+
+      #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4caf50;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="customers">
+      <tr>
+        <th>Bussiness Name</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Zip</th>
+        <th>Service Date</th>
+        <th>Amount Due</th>
+        <th>Due Date</th>
+        <th>Total Usages</th>
+        <th>Electric Heat</th>
+        <th>Balanced Bill</th>
+        <th>Electricity Provider</th>
+        <th>User Type</th>
+      </tr>
+      <tr>
+        <td>{{ bussiness_name }}</td>
+        <td>{{ full_name }}</td>
+        <td>{{ email }}</td>
+        <td>{{ phone }}</td>
+        <td>{{ zip }}</td>
+        <td>{{ service_date }}</td>
+        <td>{{ amount_due }}</td>
+        <td>{{ due_date }}</td>
+        <td>{{ total_usages }}</td>
+        <td>{{ electric_heat }}</td>
+        <td>{{ balanced_bill }}</td>
+        <td>{{ current_electricity_provider }}</td>
+        <td>{{ user_type }}</td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <title>Quant Energy</title>
+    <style>
+        .email-template {
+            max-width: 500px;
+            height: 500px;
+            border-radius: 5px;
+            background-color: aliceblue;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+
+        }
+
+        .email-template h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0px;
+        }
+
+        .email-template p {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+        }
+
+        .email-template-logo img {
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+<section class="email-template">
+    <div>
+        <h1>Thank You!</h1>
+        <div class="email-template-logo">
+<!--            <img src= '../static/assets/images/logo.png' alt="quant energy">-->
+            <img src= "http://clixlogix.org/clixlogix.png" alt="quant energy">
+        </div>
+    </div>
+</section>
+</body>
+</html>

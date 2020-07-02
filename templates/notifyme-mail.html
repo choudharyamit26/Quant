@@ -1,0 +1,73 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>User Creation Form Data</title>
+    <style>
+      #customers {
+        font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #customers td,
+      #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      #customers tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      #customers tr:hover {
+        background-color: #ddd;
+      }
+
+      #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4caf50;
+        color: white;
+      }
+
+      /* table{
+border: 1px solid #418dff;
+}
+
+table.form-data th {
+    background-color: #418dff;
+    color: #fff;
+}
+
+table.form-data td {
+    border-right: 1px solid #ccc;
+        color: #000;
+} */
+    </style>
+  </head>
+  <body>
+    <table id="customers">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+        <th>Phone</th>
+        <th>Email</th>
+      </tr>
+      <tr>
+        <td>{{ first_name }}</td>
+        <td>{{ last_name }}</td>
+        <td>{{ street }}</td>
+        <td>{{ city }}</td>
+        <td>{{ state }}</td>
+        <td>{{ zip }}</td>
+        <td>{{ contact_no }}</td>
+        <td>{{ email }}</td>
+      </tr>
+    </table>
+  </body>
+</html>

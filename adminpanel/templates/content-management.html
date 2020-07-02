@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="app-container app-theme-white body-tabs-shadow fixed-sidebar
+            fixed-header">
+    <div class="app-main__outer">
+        <div class="app-main__inner">
+            <div class="main-card mb-3 card">
+                <div class="card-header">
+                    <div class="row" style="width:100%;">
+                        <div class="col-sm-8">
+                            <br>
+                            <h5 class="card-title">Content List</h5>
+                        </div>
+                        <div class="col-sm-4">
+
+                            <form class="search-form">
+                                <div class="input-group">
+                                    <input type="search" placeholder="Search here.." class="form-control"/>
+                                    <button class="input-group-addon">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="mb-0 table table-striped content-list">
+                            <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Content</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for object in post %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ object.content|safe }}</td>
+                                <td class="action">
+                                    <button class="btn btn-info" data-toggle="tooltip" data-placement="top"
+                                            title="Edit"><i class="fa fa-pencil"></i></button>
+                                    <a href="{% url 'adminpanel:post-detail' object.id  %}" class="btn btn-warning"
+                                       data-toggle="tooltip"
+                                       data-placement="top" title="View detail"><i class="fa fa-eye"></i></a>
+                                    <button class="btn btn-danger openmodale" data-placement="top" title="Delet"><i
+                                            class="fa fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="text-right full-width pagination-container">
+                        <ul>
+                            <li>6,201 items</li>
+                        </ul>
+                        <ul class="pagination">
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link" aria-label="Previous"><span
+                                    aria-hidden="true">«</span><span class="sr-only">Previous</span></a></li>
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link">1</a></li>
+                            <li class="page-item active"><a href="javascript:void(0);" class="page-link">2</a></li>
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link">3</a></li>
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link">4</a></li>
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link">5</a></li>
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
+                                                     aria-label="Next"><span aria-hidden="true">»</span><span
+                                    class="sr-only">Next</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        <div class="main-card mb-3 card">
+            <div class="card-header">
+                <div class="row" style="width:100%;">
+                    <div class="col-sm-8">
+                        <br>
+                        <h5 class="card-title">Post List</h5></div>
+                    <div class="col-sm-4">
+
+                        <a class="float-left btn btn-info " href="{% url 'adminpanel:post-create' %}">Create New Post</a>
+
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="mb-0 table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Sr .NO</th>
+                                <th>Title</th>
+
+                            </tr>
+                            </thead>
+                            {% for object in post %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ object.content|safe }}</td>
+                                <td><a class="btn btn-info" href="{% url 'adminpanel:post-detail' object.id  %}"><i
+                                        class="fa fa-eye"></i></a>
+                                    <a class="btn btn-warning" href="{% url 'adminpanel:post-update' object.id  %}"><i
+                                            class="fa fa-pencil"></i></a>
+                                    <a class="btn btn-danger" href="{% url 'adminpanel:post-delete' object.id  %}"><i
+                                            class="fa fa-trash"></i></a></td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <div class="text-right full-width pagination-container">
+                            <ul class="pagination">
+
+                                {% if post.has_previous %}
+                                <li><a href="?page={{ post.previous_page_number }}"><i
+                                        class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+                                {% endif %}
+
+                                {% if post.number|add:'-4' > 1 %}
+                                <li><a href="?page={{ post.number|add:'-5' }}">&hellip;</a></li>
+                                {% endif %}
+
+                                {% for i in post.paginator.page_range %}
+                                {% if post.number == i %}
+                                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span>
+                                </li>
+                                {% elif i > post.number|add:'-5' and i < post.number|add:'5' %}
+                                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                {% endif %}
+                                {% endfor %}
+
+                                {% if post.paginator.num_pages > post.number|add:'4' %}
+                                <li><a href="?page={{ post.number|add:'5' }}">&hellip;</a></li>
+                                {% endif %}
+
+                                {% if post.has_next %}
+                                <li><a href="?page={{ post.next_page_number }}"><i
+                                        class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                                {% endif %}
+
+                            </ul>
+
+                        </div>
+                        <ul>
+                            <li>{{ count }}</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

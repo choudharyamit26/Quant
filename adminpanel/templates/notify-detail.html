@@ -1,0 +1,99 @@
+{% extends "base.html" %} {% block content %}
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        <div class="main-card mb-3 card">
+            <div class="card-header">
+                <div class="row" style="width:100%;">
+                    <div class="col-sm-8">
+                        <br/>
+                        <h5 class="card-title">Notify Form Detail</h5>
+                    </div>
+                    <div class="detail-right col-sm-4">
+                        <div class="btn-back">
+                            <a
+                                    href="{% url 'adminpanel:notify-detail-download' object.id %}"
+                                    class="btn btn-secondary download"
+                            >Export to CSV</a
+                            >
+                        </div>
+                        <div class="btn-back">
+                            <a
+                                    href="{% url 'adminpanel:notifyme-list' %}"
+                                    class="btn btn-secondary"
+                            >Back</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body user-view">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card-title">
+                            <h2>First Name :</h2>
+                            <p>{{ object.first_name }}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card-title">
+                            <h2>Last Name:</h2>
+                            <p>{{ object.last_name }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card-title">
+                            <h2>Email :</h2>
+                            <p>{{ object.email }}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card-title">
+                            <h2>Phone :</h2>
+                            <p>{{ object.contact_no }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card-title">
+                            <h2>Street :</h2>
+                            <p>{{ object.street }}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card-title">
+                            <h2>City :</h2>
+                            <p>{{ object.city }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card-title">
+                            <h2>Zip :</h2>
+                            <p>{{ object.zip }}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card-title">
+                            <h2>State :</h2>
+                            <p>{{ object.state }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card-title">
+                            <h2>Created At :</h2>
+                            <p>{{ object.created_at }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

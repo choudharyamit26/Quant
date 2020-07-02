@@ -1,0 +1,198 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /rest-api/serviceprovider/:
+    get:
+      operationId: listElectricityProviders
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    electricity_provider_name:
+                      type: string
+                      maxLength: 100
+                    id:
+                      type: integer
+                      readOnly: true
+                  required:
+                  - electricity_provider_name
+          description: ''
+  /rest-api/contactus/:
+    post:
+      operationId: CreateInquiryForm
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                bussiness_name:
+                  type: string
+                  maxLength: 256
+                full_name:
+                  type: string
+                  maxLength: 100
+                email:
+                  type: string
+                  format: email
+                  maxLength: 254
+                phone:
+                  type: integer
+                  maximum: 4294967295
+                  minimum: 0
+                zip:
+                  type: integer
+                  maximum: 4294967295
+                  minimum: 0
+                service_date:
+                  type: string
+                  format: date
+                amount_due:
+                  type: integer
+                  maximum: 4294967295
+                  nullable: true
+                  minimum: 0
+                due_date:
+                  type: string
+                  format: date
+                  nullable: true
+                total_usages:
+                  type: integer
+                  maximum: 4294967295
+                  nullable: true
+                  minimum: 0
+                electric_heat:
+                  enum:
+                  - 'Yes'
+                  - 'No'
+                  nullable: true
+                balanced_bill:
+                  enum:
+                  - 'Yes'
+                  - 'No'
+                  nullable: true
+                current_electricity_provider:
+                  type: integer
+                  nullable: true
+                user_type:
+                  enum:
+                  - Business has service currently but I want to compare rates
+                  - Business has service currently but it's moving location
+                  - Business is new and does not have service currently
+                  nullable: true
+              required:
+              - bussiness_name
+              - full_name
+              - email
+              - phone
+              - zip
+              - service_date
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  bussiness_name:
+                    type: string
+                    maxLength: 256
+                  full_name:
+                    type: string
+                    maxLength: 100
+                  email:
+                    type: string
+                    format: email
+                    maxLength: 254
+                  phone:
+                    type: integer
+                    maximum: 4294967295
+                    minimum: 0
+                  zip:
+                    type: integer
+                    maximum: 4294967295
+                    minimum: 0
+                  service_date:
+                    type: string
+                    format: date
+                  amount_due:
+                    type: integer
+                    maximum: 4294967295
+                    nullable: true
+                    minimum: 0
+                  due_date:
+                    type: string
+                    format: date
+                    nullable: true
+                  total_usages:
+                    type: integer
+                    maximum: 4294967295
+                    nullable: true
+                    minimum: 0
+                  electric_heat:
+                    enum:
+                    - 'Yes'
+                    - 'No'
+                    nullable: true
+                  balanced_bill:
+                    enum:
+                    - 'Yes'
+                    - 'No'
+                    nullable: true
+                  current_electricity_provider:
+                    type: integer
+                    nullable: true
+                  user_type:
+                    enum:
+                    - Business has service currently but I want to compare rates
+                    - Business has service currently but it's moving location
+                    - Business is new and does not have service currently
+                    nullable: true
+                required:
+                - bussiness_name
+                - full_name
+                - email
+                - phone
+                - zip
+                - service_date
+          description: ''
+  /service-provider-rest-api/:
+    post:
+      operationId: CreateServiceProvider
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                electricity_provider_code:
+                  type: string
+                  maxLength: 100
+                electricity_provider_name:
+                  type: string
+                  maxLength: 100
+              required:
+              - electricity_provider_code
+              - electricity_provider_name
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  electricity_provider_code:
+                    type: string
+                    maxLength: 100
+                  electricity_provider_name:
+                    type: string
+                    maxLength: 100
+                required:
+                - electricity_provider_code
+                - electricity_provider_name
+          description: ''
